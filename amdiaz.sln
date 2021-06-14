@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31019.35
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2C9F2361-8FEE-4BF7-B943-CD59E5284426}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F97FED0F-C243-4101-8791-4C5DB3471813}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MartianRobots", "src\MartianRobots\MartianRobots.csproj", "{43EE23C8-A119-43FC-8316-0B2AC6972561}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MartianRobots", "test\MartianRobots\MartianRobots.csproj", "{32930759-A2AF-4EDF-BBD5-9891BAA7DAEB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{5292CE68-AA17-4C3D-8281-2C0F0414BD29}"
+	ProjectSection(SolutionItems) = preProject
+		docs\kata.md = docs\kata.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43EE23C8-A119-43FC-8316-0B2AC6972561}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43EE23C8-A119-43FC-8316-0B2AC6972561}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43EE23C8-A119-43FC-8316-0B2AC6972561}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43EE23C8-A119-43FC-8316-0B2AC6972561}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32930759-A2AF-4EDF-BBD5-9891BAA7DAEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32930759-A2AF-4EDF-BBD5-9891BAA7DAEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32930759-A2AF-4EDF-BBD5-9891BAA7DAEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32930759-A2AF-4EDF-BBD5-9891BAA7DAEB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{43EE23C8-A119-43FC-8316-0B2AC6972561} = {2C9F2361-8FEE-4BF7-B943-CD59E5284426}
+		{32930759-A2AF-4EDF-BBD5-9891BAA7DAEB} = {F97FED0F-C243-4101-8791-4C5DB3471813}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FEE31C0E-3042-4F47-B7A8-B222E7EE0789}
+	EndGlobalSection
+EndGlobal
