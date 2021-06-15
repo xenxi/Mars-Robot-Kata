@@ -1,4 +1,4 @@
-# Technical test.
+# Mars Robot Kata.
 
 # Introduction.
 
