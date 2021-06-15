@@ -1,7 +1,9 @@
-﻿namespace Amdiaz.MartianRobots.Domain
+﻿using Amdiaz.MartianRobots.Domain.Rovers.Locations;
+
+namespace Amdiaz.MartianRobots.Domain
 {
     public interface IRoverStatusUpdater
     {
-        void Update(string command);
+        void Update(Location location, bool lost);
     }
 }

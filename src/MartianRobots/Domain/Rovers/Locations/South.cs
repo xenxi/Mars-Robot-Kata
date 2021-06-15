@@ -11,7 +11,7 @@ namespace Amdiaz.MartianRobots.Domain.Rovers.Locations
         protected override string OrientationDisplayName => "S";
 
         public override Location Move(int step)
-                => new North(new Coordinates(x: Coordinates.X,
+                => new South(new Coordinates(x: Coordinates.X,
                                      y: Coordinates.Y - step));
 
         public override Location TurnLeft()

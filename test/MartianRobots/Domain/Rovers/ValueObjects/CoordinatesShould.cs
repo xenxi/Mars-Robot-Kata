@@ -16,14 +16,14 @@ namespace Amdiaz.Test.MartianRobots.Domain.Rovers.ValueObjects
             Assert.NotNull(new Coordinates(x: randomXCoordinate, y: randomYCoordinate));
         }
 
-        [Fact]
-        public void throw_an_invalid_coordinates_exception()
+        [Theory]
+        [InlineData(Coordinates.MaxCoordinateValue + 1, 2)]
+        [InlineData(Coordinates.MinCoordinateValue - 1, 2)]
+        [InlineData(1, Coordinates.MaxCoordinateValue + 1)]
+        [InlineData(1, Coordinates.MinCoordinateValue - 1)]
+        public void throw_an_invalid_coordinates_exception(int x, int y)
         {
-            Assert.Throws<InvalidCoordinatesException>(() => new Coordinates(x: Coordinates.MaxCoordinateValue + 1, y: 2));
-            Assert.Throws<InvalidCoordinatesException>(() => new Coordinates(x: Coordinates.MinCoordinateValue - 1, y: 2));
-
-            Assert.Throws<InvalidCoordinatesException>(() => new Coordinates(x: 1, y: Coordinates.MaxCoordinateValue + 1));
-            Assert.Throws<InvalidCoordinatesException>(() => new Coordinates(x: 1, y: Coordinates.MinCoordinateValue - 1));
+            Assert.Throws<InvalidCoordinatesException>(() => new Coordinates(x: x, y: y));
         }
     }
 }

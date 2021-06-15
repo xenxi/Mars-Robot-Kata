@@ -5,18 +5,18 @@ namespace Amdiaz.MartianRobots.Infrastructure
 {
     public static class RoverCommandCharMapper
     {
-        public static RoverCommands From(char motionCommandChr)
+        public static RoverCommand From(char motionCommandChr)
         {
             motionCommandChr = char.ToLower(motionCommandChr);
 
             if (motionCommandChr == 'l')
-                return RoverCommands.Left;
+                return RoverCommand.Left;
 
             if (motionCommandChr == 'r')
-                return RoverCommands.Right;
+                return RoverCommand.Right;
 
             if (motionCommandChr == 'f')
-                return RoverCommands.Forward;
+                return RoverCommand.Forward;
 
             throw new InvalidCommandException();
         }

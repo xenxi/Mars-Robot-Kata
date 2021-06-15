@@ -20,11 +20,11 @@ namespace Amdiaz.Test.MartianRobots.Domain
                                               commands: randomCommands());
         }
 
-        private static IEnumerable<RoverCommands> randomCommands()
+        private static IEnumerable<RoverCommand> randomCommands()
         {
-            var commands = new List<RoverCommands>();
+            var commands = new List<RoverCommand>();
             for (int i = 0; i < MotherCreator.Random().Number(max: 10, min: 1); i++)
-                commands.Add(MotherCreator.Random().Enum<RoverCommands>());
+                commands.Add(MotherCreator.Random().Enum<RoverCommand>());
 
             return commands;
         }

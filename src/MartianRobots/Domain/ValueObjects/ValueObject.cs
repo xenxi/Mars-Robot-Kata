@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Amdiaz.MartianRobots.Shared.Domain
+namespace Amdiaz.MartianRobots.Domain.ValueObjects
 {
     public abstract class ValueObject
     {

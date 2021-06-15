@@ -1,5 +1,4 @@
 ﻿using Amdiaz.MartianRobots.Domain.Rovers.Locations;
-using Amdiaz.MartianRobots.Domain.Rovers.Terrains;
 
 namespace Amdiaz.MartianRobots.Domain.Rovers
 {
@@ -17,35 +16,33 @@ namespace Amdiaz.MartianRobots.Domain.Rovers
         public Location BroadcastLocation()
             => _location;
 
-        public bool MoveForward()
+        public Location MoveForward()
         {
             var newLocation = _location.Move(1);
 
-            var positionChanged = canMove(newLocation);
-            if (positionChanged)
-                _location = newLocation;
+            _location = moveToNewLocation(newLocation);
 
-            return positionChanged;
+            return newLocation;
         }
 
-        public override string ToString()
-          => $"{_location}";
+        public bool Ping()
+           => _location != null;
 
         public void TurnLeft()
-             => _location = _location.TurnLeft();
+            => _location = _location.TurnLeft();
 
         public void TurnRight()
             => _location = _location.TurnRight();
 
-        private bool canMove(Location newLocation)
+        private Location moveToNewLocation(Location newLocation)
         {
             if (_terrain.SmellsLikeDeadRobot(newLocation.Coordinates))
-                return true;
+                return _location;
 
-            if (_terrain.IsOnTheSurface(_location.Coordinates))
-                return true;
+            if (!_terrain.IsOut(newLocation.Coordinates))
+                return newLocation;
 
-            return false;
+            return null;
         }
     }
 }

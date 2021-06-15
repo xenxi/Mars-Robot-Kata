@@ -1,6 +1,6 @@
 ﻿namespace Amdiaz.MartianRobots.Commands
 {
-    public enum RoverCommands
+    public enum RoverCommand
     {
         Forward,
         Left,

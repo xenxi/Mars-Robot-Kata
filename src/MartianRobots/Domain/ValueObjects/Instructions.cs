@@ -1,5 +1,4 @@
-﻿using Amdiaz.MartianRobots.Shared.Domain;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace Amdiaz.MartianRobots.Domain.ValueObjects

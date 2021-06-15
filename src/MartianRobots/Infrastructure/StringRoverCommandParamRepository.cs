@@ -1,9 +1,9 @@
 ﻿using Amdiaz.MartianRobots.Commands;
 using Amdiaz.MartianRobots.Domain;
 using Amdiaz.MartianRobots.Domain.Exceptions;
-using Amdiaz.MartianRobots.Domain.Rovers.Terrains;
+using Amdiaz.MartianRobots.Domain.Rovers;
 using Amdiaz.MartianRobots.Domain.ValueObjects;
-using Amdiaz.MartianRobots.Terrains;
+using Amdiaz.MartianRobots.Infrastructure.Rovers;
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
@@ -56,9 +56,9 @@ namespace Amdiaz.MartianRobots.Infrastructure
             return (int.Parse(roverPos[0]), int.Parse(roverPos[1]), roverPos[2].ToUpper());
         }
 
-        private IEnumerable<RoverCommands> getMovementSequence(string motionCommandsStr)
+        private IEnumerable<RoverCommand> getMovementSequence(string motionCommandsStr)
         {
-            List<RoverCommands> commands = new List<RoverCommands>();
+            List<RoverCommand> commands = new List<RoverCommand>();
 
             foreach (var character in motionCommandsStr)
                 if (char.IsLetter(character))
@@ -66,6 +66,7 @@ namespace Amdiaz.MartianRobots.Infrastructure
 
             return commands.ToArray();
         }
+
         private ITerrain getTerrain(string terrainCoordsStr)
         {
             if (!Regex.IsMatch(terrainCoordsStr, @"^\d+ \d+$"))

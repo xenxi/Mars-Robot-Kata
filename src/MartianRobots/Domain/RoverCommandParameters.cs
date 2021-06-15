@@ -1,6 +1,6 @@
 ﻿using Amdiaz.MartianRobots.Commands;
+using Amdiaz.MartianRobots.Domain.Rovers;
 using Amdiaz.MartianRobots.Domain.Rovers.Locations;
-using Amdiaz.MartianRobots.Domain.Rovers.Terrains;
 using Amdiaz.MartianRobots.Domain.ValueObjects;
 using Amdiaz.MartianRobots.Factories;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ namespace Amdiaz.MartianRobots.Domain
     {
         public RoverCommandParameters(ITerrain terrain, int robotCurrentPositionX,
                                       int robotCurrentPositionY, Orientation robotCurrentOrientation,
-                                      IEnumerable<RoverCommands> commands)
+                                      IEnumerable<RoverCommand> commands)
         {
             Terrain = terrain;
 
@@ -21,7 +21,7 @@ namespace Amdiaz.MartianRobots.Domain
             Commands = commands;
         }
 
-        public IEnumerable<RoverCommands> Commands { get; }
+        public IEnumerable<RoverCommand> Commands { get; }
         public Location CurrentLocation { get; }
         public ITerrain Terrain { get; }
     }

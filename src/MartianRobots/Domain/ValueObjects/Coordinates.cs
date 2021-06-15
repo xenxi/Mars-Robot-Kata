@@ -1,11 +1,9 @@
 ﻿using Amdiaz.MartianRobots.Domain.Exceptions;
-using Amdiaz.MartianRobots.Shared.Domain;
-using System;
 using System.Collections.Generic;
 
 namespace Amdiaz.MartianRobots.Domain.ValueObjects
 {
-    public sealed class Coordinates: ValueObject
+    public sealed class Coordinates : ValueObject
     {
         public const int MaxCoordinateValue = 50;
         public const int MinCoordinateValue = 0;

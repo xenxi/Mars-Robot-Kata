@@ -30,10 +30,10 @@ namespace Amdiaz.Test.MartianRobots.Infrastructure
 
             param.Commands
                  .Should()
-                 .ContainInOrder(RoverCommands.Right,
-                                 RoverCommands.Forward,
-                                 RoverCommands.Right,
-                                 RoverCommands.Left);
+                 .ContainInOrder(RoverCommand.Right,
+                                 RoverCommand.Forward,
+                                 RoverCommand.Right,
+                                 RoverCommand.Left);
         }
 
         [Theory]

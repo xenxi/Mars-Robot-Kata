@@ -1,4 +1,5 @@
 ﻿using Amdiaz.MartianRobots.Domain;
+using Amdiaz.MartianRobots.Domain.Commands;
 using Amdiaz.MartianRobots.Domain.Rovers;
 using System.Linq;
 
@@ -26,15 +27,13 @@ namespace Amdiaz.MartianRobots.Application.SendInstructions
                 var perseverance = new Rover(terrain: roverInstruction.Terrain,
                                              location: roverInstruction.CurrentLocation);
 
-                foreach (var movementCommand in roverInstruction.Commands)
-                {
+                var commandRunner = new RoverCommandRunner(rover: perseverance,
+                                                           terrain: roverInstruction.Terrain);
 
-                }
+                var lastKnownPosition = commandRunner.Execute(roverInstruction);
 
-                _updater.Update(perseverance.BroadcastStatus());
+                _updater.Update(lastKnownPosition, lost: !perseverance.Ping());
             }
-
-           
         }
     }
 }

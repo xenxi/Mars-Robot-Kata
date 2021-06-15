@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Amdiaz.MartianRobots.Shared
+namespace Amdiaz.MartianRobots.Domain.Exceptions
 {
     [Serializable]
     public class InvalidPositionException : Exception

@@ -1,9 +1,7 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>Amdiaz.Test.MartianRobots</AssemblyName>
-    <RootNamespace>Amdiaz.Test.MartianRobots</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\MartianRobots\MartianRobots.csproj" />
+    <ProjectReference Include="..\..\apps\MartianRobots.App.Console\MartianRobots.AppConsole.csproj" />
   </ItemGroup>
 
 </Project>

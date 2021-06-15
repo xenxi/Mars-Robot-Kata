@@ -7,14 +7,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2C9F2361-8FE
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F97FED0F-C243-4101-8791-4C5DB3471813}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MartianRobots", "src\MartianRobots\MartianRobots.csproj", "{43EE23C8-A119-43FC-8316-0B2AC6972561}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MartianRobots", "src\MartianRobots\MartianRobots.csproj", "{43EE23C8-A119-43FC-8316-0B2AC6972561}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MartianRobots", "test\MartianRobots\MartianRobots.csproj", "{32930759-A2AF-4EDF-BBD5-9891BAA7DAEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MartianRobots", "test\MartianRobots\MartianRobots.csproj", "{32930759-A2AF-4EDF-BBD5-9891BAA7DAEB}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{5292CE68-AA17-4C3D-8281-2C0F0414BD29}"
-	ProjectSection(SolutionItems) = preProject
-		docs\kata.md = docs\kata.md
-	EndProjectSection
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "apps", "apps", "{FD81ADFC-16E4-478E-9A6B-BC6ED69D257A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MartianRobots.AppConsole", "apps\MartianRobots.App.Console\MartianRobots.AppConsole.csproj", "{6A8EE3FD-20EE-4144-A4D2-5DEF0FD6A487}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MartianRobots.ConsoleApp", "test\MartianRobots.ConsoleApp\MartianRobots.ConsoleApp.csproj", "{14CFE789-B40F-4D0B-A4DB-5C1D387A3041}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +31,14 @@ Global
 		{32930759-A2AF-4EDF-BBD5-9891BAA7DAEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32930759-A2AF-4EDF-BBD5-9891BAA7DAEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32930759-A2AF-4EDF-BBD5-9891BAA7DAEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A8EE3FD-20EE-4144-A4D2-5DEF0FD6A487}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A8EE3FD-20EE-4144-A4D2-5DEF0FD6A487}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A8EE3FD-20EE-4144-A4D2-5DEF0FD6A487}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A8EE3FD-20EE-4144-A4D2-5DEF0FD6A487}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14CFE789-B40F-4D0B-A4DB-5C1D387A3041}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14CFE789-B40F-4D0B-A4DB-5C1D387A3041}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14CFE789-B40F-4D0B-A4DB-5C1D387A3041}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14CFE789-B40F-4D0B-A4DB-5C1D387A3041}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -37,6 +46,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{43EE23C8-A119-43FC-8316-0B2AC6972561} = {2C9F2361-8FEE-4BF7-B943-CD59E5284426}
 		{32930759-A2AF-4EDF-BBD5-9891BAA7DAEB} = {F97FED0F-C243-4101-8791-4C5DB3471813}
+		{6A8EE3FD-20EE-4144-A4D2-5DEF0FD6A487} = {FD81ADFC-16E4-478E-9A6B-BC6ED69D257A}
+		{14CFE789-B40F-4D0B-A4DB-5C1D387A3041} = {F97FED0F-C243-4101-8791-4C5DB3471813}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FEE31C0E-3042-4F47-B7A8-B222E7EE0789}

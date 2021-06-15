@@ -1,4 +1,4 @@
-﻿using Amdiaz.MartianRobots.Domain.Rovers.Terrains;
+﻿using Amdiaz.MartianRobots.Domain.Rovers;
 using Amdiaz.MartianRobots.Infrastructure.Rovers;
 using Amdiaz.Test.MartianRobots.Domain.Rovers.ValueObjects;
 

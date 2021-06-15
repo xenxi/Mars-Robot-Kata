@@ -4,7 +4,6 @@ using Amdiaz.MartianRobots.Domain;
 using Amdiaz.MartianRobots.Domain.Rovers.Locations;
 using Amdiaz.MartianRobots.Domain.ValueObjects;
 using Amdiaz.MartianRobots.Infrastructure.Rovers;
-using Amdiaz.Test.MartianRobots.Domain;
 using Moq;
 using System.Collections.Generic;
 using Xunit;
@@ -26,15 +25,30 @@ namespace Amdiaz.Test.MartianRobots.Application.SendInstructions
         }
 
         [Fact]
-        public void send_and_notify_robot()
+        public void move_robot()
         {
-            var param = RoverCommandParametersMother.Random();
+            var param = new RoverCommandParameters(terrain: new MarsTerrain(maxX: 5, maxY: 3),
+                robotCurrentPositionX: 1,
+                robotCurrentPositionY: 1,
+                robotCurrentOrientation: Orientation.East,
+                commands: new List<RoverCommand>()
+                {
+                    RoverCommand.Right,
+                    RoverCommand.Forward,
+                    RoverCommand.Right,
+                    RoverCommand.Forward,
+                    RoverCommand.Right,
+                    RoverCommand.Forward,
+                    RoverCommand.Right,
+                    RoverCommand.Forward,
+                });
+            var expectedLastLocation = new East(new Coordinates(x: 1, y: 1));
 
             shouldSearchForParams(new List<RoverCommandParameters>() { param });
 
             _sender.Send();
 
-            shouldHaveNotifyUpdates();
+            shouldHaveNotifyUpdates(expectedLastLocation, lost: false);
         }
 
         [Fact]
@@ -44,24 +58,45 @@ namespace Amdiaz.Test.MartianRobots.Application.SendInstructions
                 robotCurrentPositionX: 3,
                 robotCurrentPositionY: 2,
                 robotCurrentOrientation: Orientation.North,
-                commands: new List<RoverCommands>()
+                commands: new List<RoverCommand>()
                 {
-                    RoverCommands.Forward,
-                    RoverCommands.Forward,
-                    RoverCommands.Forward,
+                    RoverCommand.Forward,
+                    RoverCommand.Forward,
+                    RoverCommand.Forward,
                 });
+            var expectedLastLocation = new North(new Coordinates(x: 3, y: 3));
 
             shouldSearchForParams(new List<RoverCommandParameters>() { param });
-            shouldNotifyUpdates("3 3 N PERDIDO");
 
             _sender.Send();
+
+            shouldHaveNotifyUpdates(expectedLastLocation, lost: true);
         }
 
-        private void shouldHaveNotifyUpdates()
-            => _updater.Verify(x => x.Update(It.IsAny<string>()), Times.AtLeastOnce);
+        [Fact]
+        public void send_and_notify_no_lost_robot()
+        {
+            var param = new RoverCommandParameters(terrain: new MarsTerrain(maxX: 5, maxY: 10),
+                robotCurrentPositionX: 3,
+                robotCurrentPositionY: 2,
+                robotCurrentOrientation: Orientation.North,
+                commands: new List<RoverCommand>()
+                {
+                    RoverCommand.Forward,
+                    RoverCommand.Forward,
+                    RoverCommand.Forward,
+                });
+            var expectedLastLocation = new North(new Coordinates(x: 3, y: 5));
 
-        private void shouldNotifyUpdates(string command)
-            => _updater.Verify(x => x.Update(command), Times.Once);
+            shouldSearchForParams(new List<RoverCommandParameters>() { param });
+
+            _sender.Send();
+
+            shouldHaveNotifyUpdates(expectedLastLocation, lost: false);
+        }
+
+        private void shouldHaveNotifyUpdates(Location location, bool lost)
+            => _updater.Verify(x => x.Update(location, lost), Times.Once);
 
         private void shouldSearchForParams(IEnumerable<RoverCommandParameters> @params)
              => _repository.Setup(x => x.GetAll()).Returns(@params);
